@@ -279,8 +279,12 @@ export default class extends Component {
       initState.height = height
     }
 
+    let setup = props.index
+    if (props.loop) {
+      setup++
+    }
     initState.offset[initState.dir] =
-      initState.dir === 'y' ? height * props.index : width * props.index
+      initState.dir === 'y' ? height * setup : width * setup
 
     this.internals = {
       ...this.internals,
